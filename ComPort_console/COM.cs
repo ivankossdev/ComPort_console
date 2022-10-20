@@ -62,6 +62,13 @@ namespace ComPort_console
         }
 
         //05
+        //Запись порта
+        public void WritePort(string message)
+        {
+            _serialPort.Write(message);
+        }
+
+        //06
         //Поиск доступных портов 
         public StringCollection PortName()
         {
@@ -80,7 +87,6 @@ namespace ComPort_console
                 Console.WriteLine("Not serial port.");
                 names.Add(null);
             }
-
             return names;
         }
     }
