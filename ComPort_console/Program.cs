@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,29 +13,35 @@ namespace ComPort_console
             Console.WriteLine("Старт программы.\n");
 
             COM StmPort = new COM();
-            List<string> ports = StmPort.SearchPort();
+            ReciveMessage(StmPort);
+        }
+
+        static void ReciveMessage(COM stmPort)
+        {
+            
+            List<string> ports = stmPort.SearchPort();
 
             Console.WriteLine("Список достуных портов: ");
-            foreach(string port in ports)
+            foreach (string port in ports)
             {
                 Console.WriteLine(port);
             }
 
-            StmPort.InitPort(ports[0]);
-            StmPort.OpenPort();
+            stmPort.InitPort(ports[0]);
+            stmPort.OpenPort();
 
             try
             {
-                StmPort.ReadPort();
+                stmPort.ReadPort();
             }
             catch
             {
                 Console.WriteLine("Произошла ошибка");
             }
 
-            Console.WriteLine("Нажмите Enter");
+            Console.WriteLine("Для выхода нажмите Enter");
             Console.ReadLine();
-            StmPort.ClosePort();
+            stmPort.ClosePort();
         }
     }
 }
