@@ -1,0 +1,7 @@
+C:\Users\admin\source\repos\ComPort_console\ComPort_console\bin\Debug\ComPort_console.exe.config
+C:\Users\admin\source\repos\ComPort_console\ComPort_console\bin\Debug\ComPort_console.exe
+C:\Users\admin\source\repos\ComPort_console\ComPort_console\bin\Debug\ComPort_console.pdb
+C:\Users\admin\source\repos\ComPort_console\ComPort_console\obj\Debug\ComPort_console.csprojAssemblyReference.cache
+C:\Users\admin\source\repos\ComPort_console\ComPort_console\obj\Debug\ComPort_console.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\ComPort_console\ComPort_console\obj\Debug\ComPort_console.exe
+C:\Users\admin\source\repos\ComPort_console\ComPort_console\obj\Debug\ComPort_console.pdb
