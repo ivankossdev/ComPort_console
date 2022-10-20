@@ -13,7 +13,30 @@ namespace ComPort_console
             Console.WriteLine("Старт программы.\n");
 
             COM StmPort = new COM();
-            ReciveMessage(StmPort);
+            bool work = true;
+
+            Console.WriteLine("0 -> Чтение\n1 -> Запись");
+           
+            while (work)
+            {
+                Console.WriteLine("Выбирите значение: ");
+                string type = Console.ReadLine();
+                switch (type)
+                {
+                    case "0":
+                        ReciveMessage(StmPort);
+                        break;
+                    case "1":
+                        Console.WriteLine("В разработке");
+                        break;
+                    default: Console.WriteLine("Ничего не подошло");
+                        work = false;
+                        break;
+                }
+            }
+
+            Console.WriteLine("Для выхода нажмите Enter");
+            Console.ReadLine();
         }
 
         static void ReciveMessage(COM stmPort)
@@ -38,8 +61,7 @@ namespace ComPort_console
             {
                 Console.WriteLine("Произошла ошибка");
             }
-
-            Console.WriteLine("Для выхода нажмите Enter");
+           
             Console.ReadLine();
             stmPort.ClosePort();
         }
