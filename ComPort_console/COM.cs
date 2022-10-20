@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,7 +61,7 @@ namespace ComPort_console
             Console.WriteLine(_serialPort.ReadExisting());
         }
 
-        //01
+        //05
         //Поиск доступных портов 
         public StringCollection PortName()
         {
