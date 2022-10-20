@@ -15,22 +15,30 @@ namespace ComPort_console
             COM StmPort = new COM();
             bool work = true;
 
-            Console.WriteLine("0 -> Чтение\n1 -> Запись");
+            Console.WriteLine("Список достуных портов: \n");
+            foreach (string port in StmPort.SearchPort())
+            {
+                Console.WriteLine(port);
+            }
+            Console.WriteLine();
+            Console.WriteLine("r  -> Чтение\nl1 -> Led 1 On\nl0 -> led Off\n");
            
             while (work)
             {
-                Console.WriteLine("Выбирите значение: ");
+                Console.WriteLine("Введите команду: ");
                 string type = Console.ReadLine();
                 switch (type)
                 {
-                    case "0":
+                    case "r":
                         ReciveMessage(StmPort);
                         break;
-                    case "1":
-                        Console.WriteLine("В разработке");
+                    case "l1": 
+                        SendMessage(StmPort, "l1;____");
                         break;
-                    default: Console.WriteLine("Ничего не подошло");
-                        work = false;
+                    case "l0": 
+                        SendMessage(StmPort, "l0;____");
+                        break;
+                    default: work = false;
                         break;
                 }
             }
@@ -43,12 +51,6 @@ namespace ComPort_console
         {
             
             List<string> ports = stmPort.SearchPort();
-
-            Console.WriteLine("Список достуных портов: ");
-            foreach (string port in ports)
-            {
-                Console.WriteLine(port);
-            }
 
             stmPort.InitPort(ports[0]);
             stmPort.OpenPort();
@@ -63,6 +65,25 @@ namespace ComPort_console
             }
            
             Console.ReadLine();
+            stmPort.ClosePort();
+        }
+
+        static void SendMessage(COM stmPort, string message)
+        {
+
+            List<string> ports = stmPort.SearchPort();
+
+            stmPort.InitPort(ports[0]);
+            stmPort.OpenPort();
+
+            try
+            {
+                stmPort.WritePort(message);
+            }
+            catch
+            {
+                Console.WriteLine("Произошла ошибка");
+            }
             stmPort.ClosePort();
         }
     }
