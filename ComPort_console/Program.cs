@@ -21,7 +21,12 @@ namespace ComPort_console
                 Console.WriteLine(port);
             }
             Console.WriteLine();
-            Console.WriteLine("r  -> Чтение\nl1 -> Led 1 On\nl0 -> led Off\n");
+            Console.WriteLine("r  -> Чтение\n" +
+                "l1 -> Led 1 On\n" +
+                "l2 -> Led 2 On\n" +
+                "l3 -> Led 3 On\n" +
+                "l4 -> Led 4 On\n" +
+                "\nl0 -> led Off\n");
            
             while (work)
             {
@@ -34,6 +39,15 @@ namespace ComPort_console
                         break;
                     case "l1": 
                         SendMessage(StmPort, "l1;____");
+                        break;
+                    case "l2":
+                        SendMessage(StmPort, "l2;____");
+                        break;
+                    case "l3":
+                        SendMessage(StmPort, "l3;____");
+                        break;
+                    case "l4":
+                        SendMessage(StmPort, "l4;____");
                         break;
                     case "l0": 
                         SendMessage(StmPort, "l0;____");
