@@ -15,7 +15,9 @@ namespace ComPort_console
 
             COM StmPort = new COM();
             bool work = true;
-            string tm = DateTime.Now.ToString().Substring(11);
+            //string tm = DateTime.Now.ToString().Substring(11);
+
+            string full;
 
             Console.WriteLine("Список достуных портов: \n");
             foreach (string port in StmPort.SearchPort())
@@ -26,8 +28,8 @@ namespace ComPort_console
            
             while (work)
             {
-                tm = DateTime.Now.ToString().Substring(11);
-                SendMessage(StmPort, tm);
+                full = DateTime.Now.ToString();
+                SendMessage(StmPort, full);
                 Thread.Sleep(250);
             }
 
